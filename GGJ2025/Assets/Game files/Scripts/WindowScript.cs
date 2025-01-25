@@ -2,14 +2,13 @@
 
 public class WindowScript : MonoBehaviour
 {
-    [SerializeField] private GameObject _taskBarIcon;
+    private GameObject _taskBarIcon;
 
-    private void OnDisable()
+    public void CloseWindowButton()
     {
+        this.gameObject.SetActive(false);
         _taskBarIcon.SetActive(false);
     }
-
-    public void CloseWindowButton() => this.gameObject.SetActive(false);
 
     public void MinimiseWindowButton() //тут подумать как с иконкой в таскбаре поступать
     {
@@ -18,8 +17,12 @@ public class WindowScript : MonoBehaviour
 
     public void SetTaskBarIcon(GameObject taskBarIcon)
     {
-        if (taskBarIcon != null) _taskBarIcon = taskBarIcon;
-        _taskBarIcon.SetActive(true);
+        if (taskBarIcon != null)
+        {
+            _taskBarIcon = taskBarIcon;
+            _taskBarIcon.SetActive(true);
+            _taskBarIcon.GetComponent<TaskBarIconScript>().SetWindow(this.gameObject);
+        }
         //else exeption прописать
     }
 }
