@@ -10,7 +10,6 @@ public class NewMessagesScript : MonoBehaviour
     public void AddBasicBlock()
     {
         GameObject newItem = Instantiate(_itemPrefab, _contentTransform);
-        newItem.transform.SetSiblingIndex(0);
         ScrollToBottom();
     }
 
