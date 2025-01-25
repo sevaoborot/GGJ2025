@@ -4,6 +4,7 @@ public class WindowScript : MonoBehaviour
 {
     private GameObject _taskBarIcon;
 
+
     public void CloseWindowButton()
     {
         this.gameObject.SetActive(false);
@@ -24,5 +25,10 @@ public class WindowScript : MonoBehaviour
             _taskBarIcon.GetComponent<TaskBarIconScript>().SetWindow(this.gameObject);
         }
         //else exeption прописать
+    }
+
+    public void MoveWindow(Vector3 distance)
+    {
+        this.transform.position += distance;
     }
 }
